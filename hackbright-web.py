@@ -53,6 +53,19 @@ def project(title):
     """Show project title, description and maximum grade."""
 
     title, description, maximum_grade = hackbright.get_project_by_title(title)
+    students_completed_project = hackbright.get_grades_by_title(title)  # Assigning list of tuples of students that did the project with their grades.
+
+    students = []
+
+    for student in students_completed_project:
+        print "Student: ", student
+        grade = student[1]  # student[1] = row[1] from hackbright.get_grades_by_title 
+        # which is the grade. 
+        print "Grade: ", grade
+        fname, lname, github = hackbright.get_student_by_github(student[0])  # student[0] = row [0] from hackbright.get_grades_by_title which is the github.
+        students.append((fname, lname, github, grade))
+    print "List of tuples: ", students
+
 
     return render_template("project_info.html", title=title,
                                                 description=description,

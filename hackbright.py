@@ -28,7 +28,7 @@ def get_student_by_github(github):
         """
     db_cursor = db.session.execute(QUERY, {'github': github})
     row = db_cursor.fetchone()
-    print "Student: %s %s\nGithub account: %s" % (row[0], row[1], row[2])
+    # print "Student: %s %s\nGithub account: %s" % (row[0], row[1], row[2])
     return row
 
 
@@ -70,8 +70,8 @@ def get_grade_by_github_title(github, title):
         """
     db_cursor = db.session.execute(QUERY, {'github': github, 'title': title})
     row = db_cursor.fetchone()
-    print "Student %s in project %s received grade of %s" % (
-        github, title, row[0])
+    # print "Student %s in project %s received grade of %s" % (
+    #     github, title, row[0])
     return row
 
 
