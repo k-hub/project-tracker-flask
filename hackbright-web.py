@@ -44,9 +44,19 @@ def confirmation():
 
     hackbright.make_new_student(firstname, lastname, github)
 
-    return render_template('student_add_confirmation.html', firstname=firstname,
+    return render_template("student_add_confirmation.html", firstname=firstname,
                                                             lastname=lastname,
                                                             github=github)
+
+@app.route("/project/<title>")
+def project(title):
+    """Show project title, description and maximum grade."""
+
+    title, description, maximum_grade = hackbright.get_project_by_title(title)
+
+    return render_template("project_info.html", title=title,
+                                                description=description,
+                                                maximum_grade=maximum_grade)
 
 
 if __name__ == "__main__":

@@ -10,7 +10,8 @@
 
     <ul>
     {% for project_grade in projects_grades %}
-        <li>Project Title: {{ project_grade[0] }}, Grade: {{ project_grade[1] }}</li>
+        <li>Project Title: <a href=http://127.0.0.1:5000/project/{{ project_grade[0] }}>{{ project_grade[0] }}</a>
+        , Grade: {{ project_grade[1] }}</li>
     {% endfor %}
     </ul>
 
